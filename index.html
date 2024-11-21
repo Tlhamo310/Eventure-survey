@@ -3,183 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey - Eventure</title>
-    <style>
-        body {
-            font-family: 'Old Standard TT', serif;
-            background-color: #FFF6EE;
-            color: #4F000B;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            overflow: auto;
-        }
-
-        h1 {
-            color: #720026;
-            font-size: 1.2em;  /* Smaller title font size */
-            margin-bottom: 10px;
-        }
-
-        h3 {
-            font-size: 0.9em;  /* Question font size adjusted */
-            margin-bottom: 5px;
-            color: #4F000B;
-        }
-
-        form {
-            background-color: #FFF6EE;
-            padding: 12px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 550px;
-        }
-
-        label {
-            margin-right: 6px;
-            font-size: 0.75em;  /* Reduced font size for options */
-            color: #4F000B;
-        }
-
-        input[type="radio"] {
-            margin-right: 5px;
-        }
-
-        button {
-            background-color: #FF7F51;
-            color: white;
-            padding: 6px 12px;  /* Smaller button padding */
-            border: none;
-            border-radius: 5px;
-            font-size: 0.85em;  /* Smaller button text */
-            cursor: pointer;
-            margin-top: 15px;
-        }
-
-        button:hover {
-            background-color: #FF9854;
-        }
-
-        .question {
-            margin-bottom: 8px;  /* Reduced margin between questions */
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.1em;  /* Adjusted font size for mobile */
-            }
-
-            h3 {
-                font-size: 0.8em;  /* Even smaller question text */
-            }
-
-            label {
-                font-size: 0.7em;  /* Smaller option text on mobile */
-            }
-
-            button {
-                width: 100%;
-                font-size: 0.75em;  /* Adjust button size for mobile */
-            }
-        }
-    </style>
-    <!-- Confetti CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.0/dist/confetti.browser.min.js"></script>
+    <title>Event Survey</title>
 </head>
 <body>
-    <h1>Eventure Survey</h1>
-    <form id="surveyForm">
-        <div class="question">
-            <h3>1. Would you like to learn how to manage your money better and build financial security?</h3>
-            <label><input type="radio" name="money" value="Yes"> Yes</label>
-            <label><input type="radio" name="money" value="No"> No</label>
-        </div>
+    <h1>Event Survey</h1>
+    <form action="results.html" method="GET">
+        <p>1. Are you interested in learning how to manage your money better and build financial security?</p>
+        <label><input type="radio" name="money" value="Yes"> Yes</label>
+        <label><input type="radio" name="money" value="No"> No</label>
 
-        <div class="question">
-            <h3>2. Do you struggle with balancing work, school, and personal life, and want to learn strategies to improve?</h3>
-            <label><input type="radio" name="workLife" value="Yes"> Yes</label>
-            <label><input type="radio" name="workLife" value="No"> No</label>
-        </div>
+        <p>2. Do you struggle with balancing work, school, and personal life, and want to learn strategies to improve?</p>
+        <label><input type="radio" name="workLife" value="Yes"> Yes</label>
+        <label><input type="radio" name="workLife" value="No"> No</label>
 
-        <div class="question">
-            <h3>3. Do you want to prepare and succeed for internships/jobs?</h3>
-            <label><input type="radio" name="softSkills" value="Yes"> Yes</label>
-            <label><input type="radio" name="softSkills" value="No"> No</label>
-        </div>
+        <p>3. Do you want to prepare and succeed for internships/jobs?</p>
+        <label><input type="radio" name="softSkills" value="Yes"> Yes</label>
+        <label><input type="radio" name="softSkills" value="No"> No</label>
 
-        <div class="question">
-            <h3>4. Are you considering a career in finance or looking to explore job opportunities in this field?</h3>
-            <label><input type="radio" name="financeCareer" value="Yes"> Yes</label>
-            <label><input type="radio" name="financeCareer" value="No"> No</label>
-        </div>
+        <p>4. Are you considering a career in finance or looking to explore job opportunities in this field?</p>
+        <label><input type="radio" name="financeCareer" value="Yes"> Yes</label>
+        <label><input type="radio" name="financeCareer" value="No"> No</label>
 
-        <div class="question">
-            <h3>5. Would you like to network with successful alumni from your college or university for career advice and mentorship?</h3>
-            <label><input type="radio" name="networking" value="Yes"> Yes</label>
-            <label><input type="radio" name="networking" value="No"> No</label>
-        </div>
+        <p>5. Would you like to network with successful alumni from your college or university for career advice and mentorship?</p>
+        <label><input type="radio" name="networking" value="Yes"> Yes</label>
+        <label><input type="radio" name="networking" value="No"> No</label>
 
-        <div class="question">
-            <h3>6. Are you currently in the college application process and looking for guidance on how to improve your chances of getting accepted?</h3>
-            <label><input type="radio" name="collegeHelp" value="Yes"> Yes</label>
-            <label><input type="radio" name="collegeHelp" value="No"> No</label>
-        </div>
+        <p>6. Are you currently in the college application process and looking for guidance on how to improve your chances of getting accepted?</p>
+        <label><input type="radio" name="collegeHelp" value="Yes"> Yes</label>
+        <label><input type="radio" name="collegeHelp" value="No"> No</label>
 
-        <div class="question">
-            <h3>7. Would you want professionals to share advice and offer opportunities?</h3>
-            <label><input type="radio" name="professionals" value="Yes"> Yes</label>
-            <label><input type="radio" name="professionals" value="No"> No</label>
-        </div>
+        <p>7. Would you want professionals to share advice and offer opportunities?</p>
+        <label><input type="radio" name="professionals" value="Yes"> Yes</label>
+        <label><input type="radio" name="professionals" value="No"> No</label>
 
-        <div class="question">
-            <h3>8. Would you like tips on improving your productivity and managing your time more effectively between school/work and personal life?</h3>
-            <label><input type="radio" name="productivity" value="Yes"> Yes</label>
-            <label><input type="radio" name="productivity" value="No"> No</label>
-        </div>
+        <p>8. Would you like tips on improving your productivity and managing your time more effectively between school/work and personal life?</p>
+        <label><input type="radio" name="productivity" value="Yes"> Yes</label>
+        <label><input type="radio" name="productivity" value="No"> No</label>
 
-        <div class="question">
-            <h3>9. Would you want to learn to develop soft skills for your career?</h3>
-            <label><input type="radio" name="careerSkills" value="Yes"> Yes</label>
-            <label><input type="radio" name="careerSkills" value="No"> No</label>
-        </div>
+        <p>9. Would you want to learn to develop soft skills for your career?</p>
+        <label><input type="radio" name="careerSkills" value="Yes"> Yes</label>
+        <label><input type="radio" name="careerSkills" value="No"> No</label>
 
-        <div class="question">
-            <h3>10. Are you seeking job opportunities, internships, or professional connections in the finance industry?</h3>
-            <label><input type="radio" name="financeOpportunities" value="Yes"> Yes</label>
-            <label><input type="radio" name="financeOpportunities" value="No"> No</label>
-        </div>
+        <p>10. Are you seeking job opportunities, internships, or professional connections in the finance industry?</p>
+        <label><input type="radio" name="financeOpportunities" value="Yes"> Yes</label>
+        <label><input type="radio" name="financeOpportunities" value="No"> No</label>
 
-        <br><br>
         <button type="submit">Submit</button>
     </form>
-
-    <script>
-        document.getElementById('surveyForm').addEventListener('submit', function(event) {
-            event.preventDefault();  // Prevent default form submission
-
-            // Trigger Confetti on submit
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
-
-            const formData = new FormData(event.target);
-            const params = new URLSearchParams();
-
-            formData.forEach((value, key) => {
-                params.append(key, value);
-            });
-
-            // Redirect to results.html with the survey results in URL
-            window.location.href = `results.html?${params.toString()}`;
-        });
-    </script>
 </body>
 </html>
