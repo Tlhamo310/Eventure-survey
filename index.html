@@ -4,8 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Survey</title>
+    <style>
+        body {
+            font-family: 'Old Standard TT', serif;
+            background-color: #FFEBEE;
+            color: #4F000B;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: auto;
+        }
+        
+        h1 {
+            color: #720026;
+            font-size: 2em;
+        }
+        
+        p {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        label {
+            font-size: 1em;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #FF7F51;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #FF9854;
+        }
+    </style>
 </head>
 <body>
+
     <h1>Event Survey</h1>
     <form action="results.html" method="GET">
         <p>1. Are you interested in learning how to manage your money better and build financial security?</p>
@@ -50,5 +94,6 @@
 
         <button type="submit">Submit</button>
     </form>
+
 </body>
 </html>
