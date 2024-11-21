@@ -107,4 +107,8 @@
 
             // Loop through the URL parameters and add the recommendations to the list
             urlParams.forEach((value, key) => {
-                if (value === "Yes" && eventRecommendations
+                if (value === "Yes" && eventRecommendations[key]) {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = eventRecommendations[key];
+                    recommendationsList.appendChild(listItem);
+               
