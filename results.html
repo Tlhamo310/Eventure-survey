@@ -21,12 +21,12 @@
 
         h1 {
             color: #720026;
-            font-size: 1.2em;  /* Smaller title font size */
+            font-size: 1.2em;
             margin-bottom: 10px;
         }
 
         p {
-            font-size: 0.85em;  /* Smaller text for paragraphs */
+            font-size: 0.85em;
             color: #666;
             margin-bottom: 15px;
             text-align: center;
@@ -116,7 +116,6 @@
             // Loop through the URL parameters and add the recommendations to the list
             urlParams.forEach((value, key) => {
                 if (value === "Yes" && eventRecommendations[key]) {
-                    // Create a list item for each "Yes" answer
                     const listItem = document.createElement('li');
                     listItem.textContent = eventRecommendations[key];
                     recommendationsList.appendChild(listItem);
