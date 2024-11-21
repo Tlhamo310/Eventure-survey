@@ -16,39 +16,46 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
+            overflow: auto;
         }
 
         h1 {
             color: #720026;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: 1.8em;  /* Reduced font size */
+            margin-bottom: 15px;
         }
 
         p {
-            font-size: 1.2em;
+            font-size: 1.1em;  /* Smaller text for paragraphs */
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         #recommendations {
             background-color: #FFF6EE;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 600px;
+            text-align: left;
+        }
+
+        .question {
+            font-size: 0.9em;  /* Smaller size for questions */
+            margin-bottom: 12px;
+        }
+
+        .question h3 {
+            font-size: 1.1em;  /* Smaller question text */
+            margin-bottom: 8px;
+        }
+
+        label {
+            font-size: 0.85em;  /* Smaller font size for options */
+            margin-right: 12px;
         }
 
         button {
             background-color: #FF7F51;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #FF9854;
-        }
-    </style
