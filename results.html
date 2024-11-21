@@ -42,19 +42,18 @@
             text-align: left;
         }
 
-        .question {
-            font-size: 0.75em;  /* Smaller font size for questions */
-            margin-bottom: 8px;
+        ul {
+            list-style-type: none;
+            padding-left: 0;
         }
 
-        .question h3 {
-            font-size: 0.85em;  /* Reduced question size */
-            margin-bottom: 6px;
-        }
-
-        label {
-            font-size: 0.7em;  /* Smaller option size */
-            margin-right: 8px;
+        li {
+            font-size: 0.85em;
+            margin: 8px 0;
+            padding: 8px;
+            background-color: #FF7F51;
+            color: white;
+            border-radius: 5px;
         }
 
         button {
@@ -79,9 +78,11 @@
     <h1>Your Recommendations</h1>
     <div id="recommendations">
         <p>Congratulations! You've successfully completed the survey.</p>
-        <p>Your responses have been recorded. Now, you will receive personalized recommendations based on your answers.</p>
+        <p>Your responses have been recorded. Based on your answers, here are your personalized recommendations:</p>
         
-        <div id="surveyResults"></div>
+        <ul id="recommendationsList">
+            <!-- Recommendations will be added here dynamically -->
+        </ul>
         
         <button onclick="window.history.back()">Go Back</button>
     </div>
@@ -97,8 +98,7 @@
 
             // Retrieve the survey results from the URL
             const urlParams = new URLSearchParams(window.location.search);
-            const surveyResults = document.getElementById('surveyResults');
-            let resultsHtml = '<h3>Your Survey Responses:</h3>';
+            const recommendationsList = document.getElementById('recommendationsList');
 
             const eventRecommendations = {
                 "money": "Event: Managing Money",
@@ -113,16 +113,15 @@
                 "financeOpportunities": "Event: Careers in Finance"
             };
 
+            // Loop through the URL parameters and add the recommendations to the list
             urlParams.forEach((value, key) => {
-                // Check if the answer is 'Yes', and provide corresponding event link
                 if (value === "Yes" && eventRecommendations[key]) {
-                    resultsHtml += `
-                        <p><strong>${eventRecommendations[key]}:</strong> Based on your response, we recommend you check out this event!</p>
-                    `;
+                    // Create a list item for each "Yes" answer
+                    const listItem = document.createElement('li');
+                    listItem.textContent = eventRecommendations[key];
+                    recommendationsList.appendChild(listItem);
                 }
             });
-
-            surveyResults.innerHTML = resultsHtml;
         };
     </script>
 </body>
