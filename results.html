@@ -21,15 +21,7 @@
 
         h1 {
             color: #720026;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 0.85em;
-            color: #666;
-            margin-bottom: 15px;
-            text-align: center;
+            font-size: 2em;
         }
 
         #recommendations {
@@ -48,7 +40,7 @@
         }
 
         li {
-            font-size: 0.85em;
+            font-size: 1em;
             margin: 8px 0;
             padding: 8px;
             background-color: #FF7F51;
@@ -62,7 +54,7 @@
             padding: 6px 12px;
             border: none;
             border-radius: 5px;
-            font-size: 0.85em;
+            font-size: 1em;
             cursor: pointer;
             margin-top: 15px;
         }
@@ -115,13 +107,4 @@
 
             // Loop through the URL parameters and add the recommendations to the list
             urlParams.forEach((value, key) => {
-                if (value === "Yes" && eventRecommendations[key]) {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = eventRecommendations[key];
-                    recommendationsList.appendChild(listItem);
-                }
-            });
-        };
-    </script>
-</body>
-</html>
+                if (value === "Yes" && eventRecommendations
