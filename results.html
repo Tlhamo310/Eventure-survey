@@ -34,4 +34,96 @@
 
         #recommendations {
             background-color: #FFF6EE;
-            padding: 12px
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 550px;
+            text-align: left;
+        }
+
+        .question {
+            font-size: 0.75em;  /* Smaller font size for questions */
+            margin-bottom: 8px;
+        }
+
+        .question h3 {
+            font-size: 0.85em;  /* Reduced question size */
+            margin-bottom: 6px;
+        }
+
+        label {
+            font-size: 0.7em;  /* Smaller option size */
+            margin-right: 8px;
+        }
+
+        button {
+            background-color: #FF7F51;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.85em;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #FF9854;
+        }
+    </style>
+    <!-- Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <h1>Your Recommendations</h1>
+    <div id="recommendations">
+        <p>Congratulations! You've successfully completed the survey.</p>
+        <p>Your responses have been recorded. Now, you will receive personalized recommendations based on your answers.</p>
+        
+        <div id="surveyResults"></div>
+        
+        <button onclick="window.history.back()">Go Back</button>
+    </div>
+
+    <script>
+        // Confetti effect on page load
+        window.onload = function() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+
+            // Retrieve the survey results from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const surveyResults = document.getElementById('surveyResults');
+            let resultsHtml = '<h3>Your Survey Responses:</h3>';
+
+            const eventRecommendations = {
+                "money": "Event: Managing Money",
+                "workLife": "Event: Work and Life Balance",
+                "softSkills": "Event: Soft Skills",
+                "financeCareer": "Event: Careers in Finance",
+                "networking": "Event: Networking with College Alumni",
+                "collegeHelp": "Event: College Application Help",
+                "professionals": "Event: Networking with College Alumni",
+                "productivity": "Event: Work and Life Balance",
+                "careerSkills": "Event: Soft Skills",
+                "financeOpportunities": "Event: Careers in Finance"
+            };
+
+            urlParams.forEach((value, key) => {
+                // Check if the answer is 'Yes', and provide corresponding event link
+                if (value === "Yes" && eventRecommendations[key]) {
+                    resultsHtml += `
+                        <p><strong>${eventRecommendations[key]}:</strong> Based on your response, we recommend you check out this event!</p>
+                    `;
+                }
+            });
+
+            surveyResults.innerHTML = resultsHtml;
+        };
+    </script>
+</body>
+</html>
