@@ -21,12 +21,12 @@
 
         h1 {
             color: #720026;
-            font-size: 1.6em;  /* Smaller font size */
+            font-size: 1.2em;  /* Smaller title font size */
             margin-bottom: 10px;
         }
 
         h3 {
-            font-size: 0.9em;  /* Reduced question font size */
+            font-size: 0.9em;  /* Question font size adjusted */
             margin-bottom: 5px;
             color: #4F000B;
         }
@@ -41,8 +41,8 @@
         }
 
         label {
-            margin-right: 8px;
-            font-size: 0.8em;  /* Reduced font size for options */
+            margin-right: 6px;
+            font-size: 0.75em;  /* Reduced font size for options */
             color: #4F000B;
         }
 
@@ -56,7 +56,7 @@
             padding: 6px 12px;  /* Smaller button padding */
             border: none;
             border-radius: 5px;
-            font-size: 0.9em;  /* Smaller button text */
+            font-size: 0.85em;  /* Smaller button text */
             cursor: pointer;
             margin-top: 15px;
         }
@@ -66,29 +66,31 @@
         }
 
         .question {
-            margin-bottom: 10px;  /* Reduced margin */
+            margin-bottom: 8px;  /* Reduced margin between questions */
         }
 
         /* Mobile responsiveness */
         @media (max-width: 600px) {
             h1 {
-                font-size: 1.4em;  /* Smaller title font on mobile */
+                font-size: 1.1em;  /* Adjusted font size for mobile */
             }
 
             h3 {
-                font-size: 0.85em;  /* Even smaller question text on mobile */
+                font-size: 0.8em;  /* Even smaller question text */
             }
 
             label {
-                font-size: 0.75em;  /* Smaller option text on mobile */
+                font-size: 0.7em;  /* Smaller option text on mobile */
             }
 
             button {
                 width: 100%;
-                font-size: 0.8em;  /* Adjust button size */
+                font-size: 0.75em;  /* Adjust button size for mobile */
             }
         }
     </style>
+    <!-- Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <h1>Eventure Survey</h1>
@@ -160,6 +162,13 @@
     <script>
         document.getElementById('surveyForm').addEventListener('submit', function(event) {
             event.preventDefault();  // Prevent default form submission
+
+            // Trigger Confetti on submit
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
 
             const formData = new FormData(event.target);
             const params = new URLSearchParams();
