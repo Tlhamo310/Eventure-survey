@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Recommendations - Eventure</title>
+    <title>Your Event Recommendations</title>
     <style>
         body {
             font-family: 'Old Standard TT', serif;
@@ -16,99 +16,84 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            overflow: auto;
         }
 
         h1 {
             color: #720026;
-            font-size: 2em;
-        }
-
-        #recommendations {
-            background-color: #FFF6EE;
-            padding: 12px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 550px;
-            text-align: left;
         }
 
         ul {
             list-style-type: none;
-            padding-left: 0;
+            padding: 0;
         }
 
         li {
-            font-size: 1em;
-            margin: 8px 0;
-            padding: 8px;
             background-color: #FF7F51;
             color: white;
+            margin: 8px;
+            padding: 10px;
             border-radius: 5px;
         }
 
         button {
             background-color: #FF7F51;
             color: white;
-            padding: 6px 12px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            font-size: 1em;
             cursor: pointer;
-            margin-top: 15px;
         }
 
         button:hover {
             background-color: #FF9854;
         }
     </style>
-    <!-- Confetti CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-    <h1>Your Recommendations</h1>
-    <div id="recommendations">
-        <p>Congratulations! You've successfully completed the survey.</p>
-        <p>Your responses have been recorded. Based on your answers, here are your personalized recommendations:</p>
-        
-        <ul id="recommendationsList">
-            <!-- Recommendations will be added here dynamically -->
-        </ul>
-        
-        <button onclick="window.history.back()">Go Back</button>
-    </div>
+    <h1>Your Event Recommendations</h1>
+
+    <ul id="recommendations">
+        <!-- Event recommendations will appear here -->
+    </ul>
+
+    <button onclick="window.history.back()">Go Back</button>
 
     <script>
-        // Confetti effect on page load
-        window.onload = function() {
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
+        // Retrieve the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
 
-            // Retrieve the survey results from the URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const recommendationsList = document.getElementById('recommendationsList');
+        // Event recommendations based on user responses
+        const eventRecommendations = {
+            "money": "Event: Managing Money for Financial Security",
+            "workLife": "Event: Balancing Work, School, and Life",
+            "softSkills": "Event: Building Soft Skills for Internships/Jobs",
+            "financeCareer": "Event: Careers in Finance",
+            "networking": "Event: Networking with Successful Alumni",
+            "collegeHelp": "Event: College Application Assistance",
+            "professionals": "Event: Networking and Career Advice",
+            "productivity": "Event: Time Management & Productivity Tips",
+            "careerSkills": "Event: Developing Soft Skills for Your Career",
+            "financeOpportunities": "Event: Finance Internship and Job Opportunities"
+        };
 
-            const eventRecommendations = {
-                "money": "Event: Managing Money",
-                "workLife": "Event: Work and Life Balance",
-                "softSkills": "Event: Soft Skills",
-                "financeCareer": "Event: Careers in Finance",
-                "networking": "Event: Networking with College Alumni",
-                "collegeHelp": "Event: College Application Help",
-                "professionals": "Event: Networking with College Alumni",
-                "productivity": "Event: Work and Life Balance",
-                "careerSkills": "Event: Soft Skills",
-                "financeOpportunities": "Event: Careers in Finance"
-            };
+        // Get the list where recommendations will appear
+        const recommendationsList = document.getElementById('recommendations');
 
-            // Loop through the URL parameters and add the recommendations to the list
-            urlParams.forEach((value, key) => {
-                if (value === "Yes" && eventRecommendations[key]) {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = eventRecommendations[key];
-                    recommendationsList.appendChild(listItem);
-               
+        // Loop through each parameter, check if "Yes" and display the event
+        urlParams.forEach((value, key) => {
+            if (value === "Yes" && eventRecommendations[key]) {
+                const listItem = document.createElement('li');
+                listItem.textContent = eventRecommendations[key];
+                recommendationsList.appendChild(listItem);
+            }
+        });
+
+        // If no events match
+        if (recommendationsList.children.length === 0) {
+            const listItem = document.createElement('li');
+            listItem.textContent = "No events match your answers. Please try again.";
+            recommendationsList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
