@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventure Survey</title>
+    <style>
+        body {
+            font-family: Times Roman, sans-serif;
+            padding: 20px;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .event {
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Eventure Survey</h1>
+    <p>Answer the questions to see events that match your interests.</p>
+
+    <form id="surveyForm">
+        <div class="question">
+            <label>1. Are you interested in learning how to manage your money better and build financial security?</label><br>
+            <input type="radio" id="moneyYes" name="money" value="yes"> Yes
+            <input type="radio" id="moneyNo" name="money" value="no"> No
+        </div>
+
+        <div class="question">
+            <label>2. Do you struggle with balancing work, school, and personal life, and want to learn strategies to improve?</label><br>
+            <input type="radio" id="workLifeYes" name="workLife" value="yes"> Yes
+            <input type="radio" id="workLifeNo" name="workLife" value="no"> No
+        </div>
+
+        <div class="question">
+            <label>3. Do you want to prepare and succeed for internships/jobs?</label><br>
+            <input type="radio" id="softSkillsYes" name="softSkills" value="yes"> Yes
+            <input type="radio" id="softSkillsNo" name="softSkills" value="no"> No
+        </div>
+
+        <div class="question">
+            <label>4. Are you considering a career in finance or looking to explore job opportunities in this field?</label><br>
+            <input type="radio" id="financeYes" name="finance" value="yes"> Yes
+            <input type="radio" id="financeNo" name="finance" value="no"> No
+        </div>
+
+        <div class="question">
+            <label>5. Would you like to network with successful alumni from your college or university for career advice and mentorship?</label><br>
+            <input type="radio" id="networkYes" name="network" value="yes"> Yes
+            <input type="radio" id="networkNo" name="network" value="no"> No
+        </div>
+
+        <div class="question">
+            <label>6. Are you currently in the college application process and looking for guidance on how to improve your chances of getting accepted?</label><br>
+            <input type="radio" id="collegeYes" name="college" value="yes"> Yes
+            <input type="radio" id="collegeNo" name="college" value="no"> No
+        </div>
+
+        <div class="question">
+            <label>7. Would you want professionals to share advice and offer opportunities?</label><br>
+            <input type="radio" id="professionalsYes" name="professionals" value="yes"> Yes
+            <input type="radio" id="professionalsNo" name="professionals" value="no"> No
+        </div>
+
+        <div class="question">
+            <label>8. Would you like tips on improving your productivity and managing your time more effectively between school/work and personal life?</label><br>
+            <input type="radio" id="productivityYes" name="productivity" value="yes"> Yes
+            <input type="radio" id="productivityNo" name="productivity" value="no"> No
+        </div>
+
+        <div class="question">
+            <label>9. Would you want to learn to develop soft skills for your career?</label><br>
+            <input type="radio" id="developSkillsYes" name="developSkills" value="yes"> Yes
+            <input type="radio" id="developSkillsNo" name="developSkills" value="no"> No
+        </div>
+
+        <div class="question">
+            <label>10. Are you seeking job opportunities, internships, or professional connections in the finance industry?</label><br>
+            <input type="radio" id="jobOpportunitiesYes" name="jobOpportunities" value="yes"> Yes
+            <input type="radio" id="jobOpportunitiesNo" name="jobOpportunities" value="no"> No
+        </div>
+
+        <button type="button" class="submit-button" onclick="showEvents()">Submit</button>
+    </form>
+
+    <!-- Events List -->
+    <div class="event" id="managingMoneyEvent">
+        <p>You are interested in the "Managing Money" event.</p>
+    </div>
+    <div class="event" id="workLifeBalanceEvent">
+        <p>You are interested in the "Work and Life Balance" event.</p>
+    </div>
+    <div class="event" id="softSkillsEvent">
+        <p>You are interested in the "Soft Skills" event.</p>
+    </div>
+    <div class="event" id="careersInFinanceEvent">
+        <p>You are interested in the "Careers in Finance" event.</p>
+    </div>
+    <div class="event" id="networkingEvent">
+        <p>You are interested in the "Networking with College Alumni" event.</p>
+    </div>
+    <div class="event" id="collegeApplicationEvent">
+        <p>You are interested in the "College Application Help" event.</p>
+    </div>
+
+    <script>
+        function showEvents() {
+            // Hide all events initially
+            let events = document.querySelectorAll('.event');
+            events.forEach(event => {
+                event.style.display = 'none';
+            });
+
+            // Show events based on user selections
+            if (document.getElementById('moneyYes').checked) {
+                document.getElementById('managingMoneyEvent').style.display = 'block';
+            }
+            if (document.getElementById('workLifeYes').checked) {
+                document.getElementById('workLifeBalanceEvent').style.display = 'block';
+            }
+            if (document.getElementById('softSkillsYes').checked) {
+                document.getElementById('softSkillsEvent').style.display = 'block';
+            }
+            if (document.getElementById('financeYes').checked) {
+                document.getElementById('careersInFinanceEvent').style.display = 'block';
+            }
+            if (document.getElementById('networkYes').checked) {
+                document.getElementById('networkingEvent').style.display = 'block';
+            }
+            if (document.getElementById('collegeYes').checked) {
+                document.getElementById('collegeApplicationEvent').style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
